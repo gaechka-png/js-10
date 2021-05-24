@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Задания, в которых необходимо использовать WHILE
+
+        let a, b, i;
+        let result;
+        //Задание №1
+        function getSymbol() {
+            result = '';
+            a = +prompt("Укажите количество повторений:");
+            if (isNaN(a) || (a < 0) || (a % 1 !== 0))
+                alert("Ошибка");
+            else {
+                while (a > 0) {
+                    result += '#';
+                    a--;
+                }
+            }
+            alert(result);
+        } getSymbol()
+        //---------------------------------------------------------------------------------
+        // Задание №2
+        function getScore() {
+            i = 0;
+            result = '';
+            a = +prompt("Введите число:");
+            if (isNaN(a))
+                alert("Ошибка");
+            else if (a < 0) {
+                a = a - a % 1;
+                while (a < 0) {
+                    result += (`${a}, `);
+                    a++;
+                }
+            } else {
+                a = a - a % 1;
+                while (a > 0) {
+                    result += (`${a}, `);
+                    a--;
+                }
+            }
+            result += (`0`);
+            alert(result);
+        } getScore()
+        //---------------------------------------------------------------------------------
+        //Задание №3
+        function calcPower() {
+            a = +prompt('Введите возводимое число')
+            b = +prompt('введите степень')
+            result = 1;
+            i = 0;
+            if (isNaN(a) || isNaN(b)) {
+                alert('Ошибка')
+            } else if (b > 0) {
+                while (i < b) {
+                    result = result * a
+                    i++
+                }
+            } else if (b < 0) {
+                while (i > b) {
+                    result = result / a
+                    i--
+                }
+            }
+            alert(result);
+        } calcPower()
+        //---------------------------------------------------------------------------------
+        //Задание №4
+        function commonDivisor() {
+            a = +prompt("Введите целое число:");
+            b = +prompt("Введите целое число:");
+            result = (`Общие делители для ${a} и ${b}: `);
+            if (isNaN(a) || isNaN(b) || (a % 1 !== 0) || (b % 1 !== 0)) {
+                alert("Ошибка");
+                result = '';
+            } else {
+                i = 0;
+                if (a < 0) a = a * (-1);
+                if (b < 0) b = b * (-1);
+                while ((i < a) || (i < b)) {
+                    i++;
+                    if ((a % i === 0) && (b % i === 0)) result += (`-${i}, ${i}, `);
+                }
+            }
+            alert('ОД чисел ' + a + ' и ' + b + ' будет: ' + result)
+        } commonDivisor()
+        //---------------------------------------------------------------------------------
+        //Задание № 5
+        function calcFactorial() {
+            a = +prompt('Введите число для вычисления факторила')
+            result = 1
+            if (isNaN(a)) {
+                alert('Ошибка')
+            }
+            else if (a < 0) {
+                while (a !== 0) {
+                    result *= a
+                    a += 1
+                }
+                alert(result)
+            }
+            else {
+                while (a !== 0) {
+                    result *= a
+                    a -= 1
+                }
+                alert(result)
+            }
+        } calcFactorial()
+
+        // Задания, в которых необходимо использовать DO WHILE
+
+        //Задание №1
+        function calcformula() {
+            a;
+            do {
+                a = +prompt("расчитайте: 2+2*2?");
+            } while (a !== 6);
+            alert('Ну наконец то!')
+        } calcformula()
+        //---------------------------------------------------------------------------------
+        //Задани №2
+        function calcDivision() {
+            a = 1000;
+            i = 0;
+            do {
+                a /= 2;
+                i++;
+            }
+            while (a >= 50);
+            console.log(`Число ${a} получено после ${i} делений 1000 на 2`);
+        } calcDivision()
+        //---------------------------------------------------------------------------------
+
+        //Задания, в которых необходимо использовать FOR.
+
+        //Задание №3
+        function checkInterval() {
+            a = +prompt("Введите число:");
+            if (isNaN(a)) {
+                alert("Ошибка");
+            } else if ((a < -100) || (a === 0) || (a > 100)) alert('Число не входи в интервал от 1 до 100');
+            else {
+                result = (`Числа от 1 до 100 кратные ${a}: `);
+                for (i = 1; i <= 100; i++) {
+                    if (i % a === 0)
+                        result += (`${i} `);
+                }
+                alert(result);
+            }
+        } checkInterval()
+        //---------------------------------------------------------------------------------
+        //Задание №4
+        function checkRange() {
+            a = +prompt("Введите минимальное значение");
+            b = +prompt("Введите максимальное значение");
+            if (isNaN(a) || isNaN(b) || (a % 1 !== 0) || (b % 1 !== 0) || (a > b)) {
+                alert("Ошибка");
+                result = '';
+            } else if ((b - a) < 4) result = "Слишком маленький диапазон  ";
+            else {
+                result = (`Каждый четвёртый элемент из диапазона ${a} - ${b}: `);
+                for (i = a; i <= b; i++) {
+                    if ((i - a) % 4 === 0) result += (`${i} `);
+                }
+            }
+            alert(result);
+        } checkRange()
+        //---------------------------------------------------------------------------------
+        //Задание №5
+        function checkSimple() {
+            a = +prompt('Введите простое число');
+            b = true;
+            for (let i = 2; i < a; i++) {
+                if (a % i === 0) {
+                    b = false;
+                    break;
+                }
+            }
+            alert(b)
+        } checkSimple()
+    </script>
+</body>
+
+</html>
