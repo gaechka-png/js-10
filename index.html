@@ -44,7 +44,7 @@
                     a++;
                 }
             } else {
-                a = a - a % 1;
+                a -= a % 1;
                 while (a > 0) {
                     result += (`${a}, `);
                     a--;
@@ -100,30 +100,15 @@
         function calcFactorial() {
             a = +prompt('Введите число для вычисления факторила')
             result = 1
-            if (isNaN(a)) {
-                alert('Ошибка')
+            while (a--) {
+                result *= a + 1
             }
-            else if (a < 0) {
-                while (a !== 0) {
-                    result *= a
-                    a += 1
-                }
-                alert(result)
-            }
-            else {
-                while (a !== 0) {
-                    result *= a
-                    a -= 1
-                }
-                alert(result)
-            }
-        } calcFactorial()
-
+            return result;
+        } alert(calcFactorial(result))
         // Задания, в которых необходимо использовать DO WHILE
 
         //Задание №1
         function calcformula() {
-            a;
             do {
                 a = +prompt("расчитайте: 2+2*2?");
             } while (a !== 6);
@@ -178,13 +163,13 @@
             alert(result);
         } checkRange()
         //---------------------------------------------------------------------------------
-        //Задание №5
+        // Задание №5
         function checkSimple() {
             a = +prompt('Введите простое число');
-            b = true;
+            b = false;
             for (let i = 2; i < a; i++) {
                 if (a % i === 0) {
-                    b = false;
+                    b = !b
                     break;
                 }
             }
